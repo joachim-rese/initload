@@ -15,11 +15,13 @@ MODEL_DIR = os.getenv('model_dir')
 MODEL_FILE = os.getenv('model_file')
 STORE_DIR = os.getenv('STORE_DIR')
 
+
+
 def missing_environment(var1, var2=None):
     if var2 == None:
         logging.error(f'Environment variable "{var1}" not set.')
     else:
-        logging.error(f'Neither enviroment variable "{var1}" nor "{var2}" is set.')
+        logging.error(f'Neither environment variable "{var1}" nor "{var2}" is set.')
     return False
 
 def check_environment():
