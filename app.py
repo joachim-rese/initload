@@ -43,7 +43,7 @@ def check_environment():
             S3_OBJECT_NAME = MODEL_FILE
         else:
             return missing_environment('model_file', 's3_object_name')
-    MODEL_DIR_FULL = os.path.join(STORE_DIR, 'checkpoint', MODEL_DIR)
+    MODEL_DIR_FULL = os.path.join(STORE_DIR, 'checkpoints', MODEL_DIR)
     MODEL_FILE_FULL = os.path.join(MODEL_DIR_FULL, MODEL_FILE) 
     return True
 
