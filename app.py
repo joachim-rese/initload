@@ -64,11 +64,13 @@ def load_model():
     if not os.path.exists(STORE_DIR):
         logging.error(f'Directory "{STORE_DIR}" not mounted')
         return False
-    try:
+    for dir in [os.path.join(STORE_DIR, 'checkpoints'), os.path.join(STORE_DIR, 'indexes'), os.path.join(STORE_DIR, 'models'), MODEL_DIR_FULL]:
+        if not os.path.exists(dir):
+             os.makedirs(dir)
+             logging.info(f'Directory "{dir}" created.')
+    if not os.path.exists(MODEL_DIR_FULL):
         os.makedirs(MODEL_DIR_FULL)
         logging.info(f'Directory "{MODEL_DIR_FULL}" created.')
-    except FileExistsError:
-        pass
     if not os.path.isfile(MODEL_FILE_FULL):
         logging.info(f'Start downloading: {S3_BUCKET_NAME}/{S3_OBJECT_NAME}')
         if not check_keys():
