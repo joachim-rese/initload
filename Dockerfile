@@ -11,10 +11,6 @@ ENV PYTHONUNBUFFERED=1
 COPY requirements.txt .
 RUN python -m pip install -r requirements.txt
 
-RUN mkdir -p /store
-RUN chmod -R 777 /store
-RUN mkdir -p /.cache
-RUN chmod -R 777 /.cache
 
 WORKDIR /app
 COPY . /app
